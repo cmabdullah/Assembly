@@ -29,4 +29,15 @@ clean:
 	rm -f $(OBJS) $(TARGET)
 ```
 
+### op·ti·mize
+```Makefile
+APP = hello
+NASMFLAGS = -f macho64 -o
+all:
+	nasm ${NASMFLAGS} ${APP}.o ${APP}.asm
+	ld -o ${APP} ${APP}.o
+clean:
+	rm -f ${APP} ${APP}.o
+```
+
 [Documentation](https://lord.io/blog/2014/assembly-on-osx/)

@@ -1,11 +1,7 @@
-
-TARGET =	hello
-OBJS =		$(TARGET).o
+APP = hello
 NASMFLAGS = -f macho64 -o
-$(TARGET):	$(OBJS)
-	nasm $(NASMFLAGS) $(OBJS) $(TARGET).asm
-	ld -o $(TARGET) $(OBJS)
 all:
-	$(TARGET)
+	nasm ${NASMFLAGS} ${APP}.o ${APP}.asm
+	ld -o ${APP} ${APP}.o
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -f ${APP} ${APP}.o
