@@ -1,9 +1,6 @@
-CC = gcc
-APPNAME = hello
 all:
-	${CC} -g -c ${APPNAME}.c -o ${APPNAME}.o
-	${CC} ${APPNAME}.o -o ${APPNAME}
-	objdump -s -t ${APPNAME}.o > ${APPNAME}.asm
+	nasm -f elf64 -o hello.o hello.asm
+	ld -o hello hello.o
 
 clean:
-	rm *.o
+	rm hello hello.o
