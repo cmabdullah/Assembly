@@ -1,18 +1,19 @@
-section     .text
-global      _start                              ;must be declared for linker (ld)
+  %define SYSCALL_WRITE 0x2000004
+  %define SYSCALL_EXIT  0x2000001
 
-_start:                                         ;tell linker entry point
+global start
+start:
+  mov rdi, 1
+  mov rsi, str
+  mov rdx, strlen
+  mov rax, SYSCALL_WRITE
+  syscall
 
-    mov     edx,len                             ;message length
-    mov     ecx,msg                             ;message to write
-    mov     ebx,1                               ;file descriptor (stdout)
-    mov     eax,4                               ;system call number (sys_write)
-    int     0x80                                ;call kernel
+  mov rax, SYSCALL_EXIT
+  mov rdi, 0
+  syscall
 
-    mov     eax,1                               ;system call number (sys_exit)
-    int     0x80                                ;call kernel
-
-section     .data
-
-msg     db  'Hello, world!',0xa                 ;our dear string
-len     equ $ - msg                             ;length of our dear string
+section .data
+str:
+  db `Hello, assembly!\n` ; to use escape sequences, use backticks
+strlen equ $ - str
