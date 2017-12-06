@@ -40,4 +40,26 @@ clean:
 	rm -f ${APP} ${APP}.o
 ```
 
+## Install Make
+
+> apt-get install make
+
+## Makefile Command
+
+
+> make all
+
+> make clean
+
+
+
+## install nasm
+
+> apt-get install nasm
+
+> nasm -v
+
+> nasm -hf
+
+> ld -v
 [Documentation](https://lord.io/blog/2014/assembly-on-osx/)

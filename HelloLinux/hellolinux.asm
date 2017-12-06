@@ -2,9 +2,9 @@ section .data
     text db "Hello, World!",10
  
 section .text
-    global start
+    global _start
  
-start:
+_start:
     mov rax, 1
     mov rdi, 1
     mov rsi, text
