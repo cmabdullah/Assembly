@@ -1,5 +1,5 @@
 APP = hello
-NASMFLAGS = -f macho64 -o
+NASMFLAGS = -f elf64 -o
 all:
 	nasm ${NASMFLAGS} ${APP}.o ${APP}.asm
 	ld -o ${APP} ${APP}.o
