@@ -20,7 +20,7 @@ org 100h
     
     
     mov ah,2
-    mov dl,al
+    mov dl,b
     int 21h
     
     
